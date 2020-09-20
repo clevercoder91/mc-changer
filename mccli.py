@@ -6,6 +6,9 @@ import optparse
 
 
 def get_arguments():
+    """
+    Function to fetch command line arguments
+    """
     parser = optparse.OptionParser()
     parser.add_option("-i", "--interface", dest="interface",
                       help="Inerface to change macc adress")
@@ -19,7 +22,12 @@ def get_arguments():
     return options
 
 
-def change_mac(interface, new_mac): 
+def change_mac(interface, new_mac):
+    """
+    Function that changes mac address to new one
+    :param interface: Interface of your device # Unix Based: ifconfig / iwconfig | Windows: getmac -v 
+    :param new_mac: New Mac Address as a String 
+    """
     print("[+] Changing MAC address for " + interface + " to " + new_mac)
 
     subprocess.call(["ifconfig", interface, "down"])
